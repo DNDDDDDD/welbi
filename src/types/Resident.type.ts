@@ -1,4 +1,4 @@
-import { CARE_LEVEL, ATTENDANCE } from './general';
+import { CARE_LEVEL, ATTENDANCE } from './general.type';
 
 enum RESIDENT_STATUS {
     "HERE",

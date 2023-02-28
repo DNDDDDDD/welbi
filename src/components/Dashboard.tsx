@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ProgramAPI, ResidentAPI } from "../api";
-import { Resident, Program} from "../types";
+import { Resident, Program } from "../types";
+import { ProgramTable } from "./Table";
 
 export const Dashboard = () => {
     const [residents, setResidents] = useState<Resident[]>([]);
@@ -20,6 +21,6 @@ export const Dashboard = () => {
     }, []);
     
     return (<div>
-        Dashboard
+        <ProgramTable rows={programs}/>
     </div>);
 }

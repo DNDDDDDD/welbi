@@ -1,3 +1,4 @@
-export * from './Program';
-export * from './Resident';
-export * from './general';
+export * from './Program.type';
+export * from './Resident.type';
+export * from './general.type';
+export * from './Table.type';

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 import { User } from "../api";
-import { API_URL } from "../constants";
 
 export const Login = () => { 
     const [email, setEmail] = useState('');
