@@ -1,9 +1,12 @@
+import axios from "axios";
 import { FC, useEffect, useState } from "react";
 import { ProgramAPI, ResidentAPI } from "../api";
 import { Resident, Program, TableProgram } from "../types";
+import { Loading } from "./Loader";
 import { ProgramTable } from "./Table";
 
 export const Dashboard: FC = () => {
+    const [isLoading, setIsLoading] = useState<boolean>(true);
     const [residents, setResidents] = useState<Resident[]>([]);
     const [programs, setPrograms] = useState<Program[]>([]);
 
@@ -16,8 +19,13 @@ export const Dashboard: FC = () => {
             const data = await ProgramAPI.getPrograms();
             setPrograms(data);
         }
-        getResidents();
         getPrograms();
+        getResidents();
+
+        // Minimal time for a loader
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
     }, []);
 
     const filteredRows = programs.map(({ name, location, end, start, levelOfCare, allDay, attendance, }) => ({
@@ -35,5 +43,5 @@ export const Dashboard: FC = () => {
         attendance: item.attendance.map(({ residentId }) => residents.find(({ id }) => id === residentId)),
     }))
     
-    return (<ProgramTable rows={mergedPrograms as TableProgram[]}/>);
+    return (isLoading ? <Loading /> : <ProgramTable rows={mergedPrograms as TableProgram[]}/>);
 }

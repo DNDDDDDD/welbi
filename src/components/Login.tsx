@@ -1,12 +1,17 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 import { User } from "../api";
 
 export const Login = () => { 
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
 
     const onSubmit = () => {
-        User.login(email);
+      User.login(email);
+      if (localStorage.getItem("token")) {
+          navigate("/dashboard");
+      }
     }
     
     return (<Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>

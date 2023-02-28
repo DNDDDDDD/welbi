@@ -11,7 +11,7 @@ interface Props {
 
 export const ProgramTable: FC<Props> = ({ rows }) => {
     const renderAttendance = (attendance: Resident[]) => {
-            return (<Dropdown text="See all residents">
+            return (<Dropdown text="See attendees">
                 <Dropdown.Menu>
                     {
                         attendance.map(({ name: attendanceName }) => (<Dropdown.Item>
