@@ -1,21 +1,13 @@
 import { useState } from "react";
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
+import { User } from "../api";
+import { API_URL } from "../constants";
 
 export const Login = () => { 
     const [email, setEmail] = useState('');
 
     const onSubmit = () => {
-        fetch('https://welbi.org/api/start', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email: email,
-            }),
-        }).then(res => res.json()).then(({ token }) => {
-            localStorage.setItem('token', token)
-        })
+        User.login(email);
     }
     
     return (<Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
