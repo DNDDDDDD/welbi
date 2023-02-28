@@ -5,8 +5,8 @@
 1. React
 2. Typescript
 4. [Semantic UI](https://semantic-ui.com//)
-5. [axios] (https://www.npmjs.com/package/axios)
-6. [moment.js] (https://momentjs.com/)
+5. [axios](https://www.npmjs.com/package/axios)
+6. [moment.js](https://momentjs.com/)
 6. Prettier and es-lint configured (some basic configuration)
 
 ## Set up a project
