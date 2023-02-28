@@ -5,7 +5,6 @@ import { Login } from './components/Login';
 const App = () => {
   return (
     <div>
-    <h1>Application</h1>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login/>}>

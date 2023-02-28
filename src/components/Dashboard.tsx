@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { ProgramAPI, ResidentAPI } from "../api";
-import { Resident, Program } from "../types";
+import { Resident, Program, TableProgram } from "../types";
 import { ProgramTable } from "./Table";
 
-export const Dashboard = () => {
+export const Dashboard: FC = () => {
     const [residents, setResidents] = useState<Resident[]>([]);
     const [programs, setPrograms] = useState<Program[]>([]);
 
@@ -19,8 +19,21 @@ export const Dashboard = () => {
         getResidents();
         getPrograms();
     }, []);
+
+    const filteredRows = programs.map(({ name, location, end, start, levelOfCare, allDay, attendance, }) => ({
+        name,
+        location, 
+        end,
+        start, 
+        levelOfCare,
+        allDay,
+        attendance,
+    }));
+
+    const mergedPrograms = filteredRows.map((item) => ({
+        ...item,
+        attendance: item.attendance.map(({ residentId }) => residents.find(({ id }) => id === residentId)),
+    }))
     
-    return (<div>
-        <ProgramTable rows={programs}/>
-    </div>);
+    return (<ProgramTable rows={mergedPrograms as TableProgram[]}/>);
 }

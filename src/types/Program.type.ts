@@ -1,4 +1,5 @@
 import { ATTENDANCE, CARE_LEVEL } from './general.type';
+import { Resident } from './Resident.type';
 
 enum DIMENSION {
     "Intellectual",
@@ -28,3 +29,13 @@ export interface Program {
     applicantId: string | null,
     attendance: ATTENDANCE[],
 };
+
+export interface TableProgram {
+    "name": string;
+    "location": string;
+    "end": Date;
+    "start": Date;
+    "allDay": boolean;
+    "levelOfCare": CARE_LEVEL[];
+    attendance: Resident[],
+}
