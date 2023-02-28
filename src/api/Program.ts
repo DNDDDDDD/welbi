@@ -1,9 +1,13 @@
-import { get } from '../config/api';
-import { Program } from '../types';
+import {get} from '../config/api';
+import {type Program} from '../types';
 
-export const ProgramAPI = {
-    getPrograms: async () => {
-        const { data: programs } = await get('/programs');
-        return programs as Program[];
-    }
-}
+type Data = {
+	data: Program[];
+};
+
+export const programApi = {
+	async getPrograms() {
+		const {data}: Data = await get('/programs');
+		return data;
+	},
+};

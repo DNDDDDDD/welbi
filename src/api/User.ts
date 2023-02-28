@@ -1,14 +1,13 @@
-import { post } from '../config/api';
-import { User as UserInterface } from '../types';
+import {post} from '../config/api';
+import type {User as UserInterface} from '../types';
 
-export const User = {
-    login: async (email: string) => { 
-        try {
-            const { token } = await post('/start', { email: email, }) as UserInterface;
-            localStorage.setItem('token', token);
-        }
-        catch(e) {
-            console.log(e);
-        } 
-    },
+export const userApi = {
+	async login(email: string) {
+		try {
+			const {data: {token}}: {data: UserInterface} = await post('/start', {email});
+			localStorage.setItem('token', token);
+		} catch (e) {
+			console.log(e);
+		}
+	},
 };

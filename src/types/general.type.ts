@@ -1,17 +1,17 @@
-enum ATTENDANCE_STATUS {
-    "Active",
-    "Passive",
-};
-
-export enum CARE_LEVEL {
-    "INDEPENDENT",
-    "MEMORY",
-    "ASSISTED",
-    "LONGTERM",
+enum AttendanceStatus {
+	'Active',
+	'Passive',
 }
 
-export interface ATTENDANCE {
-    programId: number,
-    residentId: number,
-    status: ATTENDANCE_STATUS,
+export enum CareLevel {
+	'INDEPENDENT',
+	'MEMORY',
+	'ASSISTED',
+	'LONGTERM',
+}
+
+export type Attendance = {
+	programId: number;
+	residentId: number;
+	status: AttendanceStatus;
 };

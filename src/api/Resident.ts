@@ -1,9 +1,13 @@
-import { get } from '../config/api';
-import { Resident } from '../types';
+import {get} from '../config/api';
+import {type Resident} from '../types';
 
-export const ResidentAPI = {
-    getResidents: async () => {
-        const { data: residents } = await get('/residents');
-        return residents as Resident[];
-    }
-}
+type Data = {
+	data: Resident[];
+};
+
+export const residentApi = {
+	async getResidents() {
+		const {data: residents}: Data = await get('/residents');
+		return residents;
+	},
+};

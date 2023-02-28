@@ -1,32 +1,32 @@
-import { CARE_LEVEL, ATTENDANCE } from './general.type';
+import {type CareLevel, type Attendance} from './general.type';
 
-enum RESIDENT_STATUS {
-    "HERE",
-    "LOA",
-    "HOSPITAL",
-    "ISOLATION",
+enum ResidentStatus {
+	'HERE',
+	'LOA',
+	'HOSPITAL',
+	'ISOLATION',
+}
+enum Ambulation {
+	'CANE',
+	'NOLIMITATIONS',
+	'WALKER',
+	'WHEELCHAIR',
+}
+
+export type Resident = {
+	id: 3;
+	name: string;
+	firstName: string;
+	lastName: string;
+	preferredName?: string;
+	status: ResidentStatus;
+	room: string;
+	levelOfCare: CareLevel;
+	ambulation: Ambulation;
+	birthDate: Date;
+	moveInDate: Date;
+	createdAt: Date;
+	updatedAt: Date;
+	applicantId?: string;
+	attendance: Attendance[];
 };
-enum AMBULATION {  
-    "CANE",
-    "NOLIMITATIONS",
-    "WALKER",
-    "WHEELCHAIR",
-}
-
-export interface Resident {
-    id: 3,
-    name: string,
-    firstName: string,
-    lastName: string,
-    preferredName?: string,
-    status: RESIDENT_STATUS,
-    room: string,
-    levelOfCare: CARE_LEVEL,
-    ambulation: AMBULATION,
-    birthDate: Date
-    moveInDate: Date,
-    createdAt: Date,
-    updatedAt: Date,
-    applicantId?: string,
-    attendance: ATTENDANCE[],
-}

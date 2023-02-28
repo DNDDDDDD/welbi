@@ -1,41 +1,41 @@
-import { ATTENDANCE, CARE_LEVEL } from './general.type';
-import { Resident } from './Resident.type';
+import {type Attendance, type CareLevel} from './general.type';
+import {type Resident} from './Resident.type';
 
-enum DIMENSION {
-    "Intellectual",
-    "Community",
-    "Physical",
-    "Social",
-    "Emotional",
+enum Dimension {
+	'Intellectual',
+	'Community',
+	'Physical',
+	'Social',
+	'Emotional',
 }
 
-export interface Program {
-    id: string,
-    parentId: string | null,
-    name: string,
-    location: string,
-    allDay: boolean,
-    start: Date,
-    end: Date,
-    tags: string[],
-    createdAt: string,
-    updatedAt: string,
-    dimension: DIMENSION,
-    facilitators: string[],
-    levelOfCare: CARE_LEVEL[]
-    hobbies: string[],
-    recurrence: string | null,
-    isRepeated: boolean,
-    applicantId: string | null,
-    attendance: ATTENDANCE[],
+export type Program = {
+	id: string;
+	parentId: string | undefined;
+	name: string;
+	location: string;
+	allDay: boolean;
+	start: Date;
+	end: Date;
+	tags: string[];
+	createdAt: string;
+	updatedAt: string;
+	dimension: Dimension;
+	facilitators: string[];
+	levelOfCare: CareLevel[];
+	hobbies: string[];
+	recurrence: string | undefined;
+	isRepeated: boolean;
+	applicantId: string | undefined;
+	attendance: Attendance[];
 };
 
-export interface TableProgram {
-    "name": string;
-    "location": string;
-    "end": Date;
-    "start": Date;
-    "allDay": boolean;
-    "levelOfCare": CARE_LEVEL[];
-    attendance: Resident[],
-}
+export type TableProgram = {
+	'name': string;
+	'location': string;
+	'end': Date;
+	'start': Date;
+	'allDay': boolean;
+	'levelOfCare': CareLevel[];
+	attendance: Resident[];
+};
