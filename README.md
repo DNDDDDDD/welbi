@@ -11,7 +11,7 @@
 
 ## Set up a project
 1. Clone git repository 
-2. `cd ./`
+2. `cd ./welbi`
 3. run `npm i` 
 4. After installation run `npm start`
 5. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.

@@ -8,7 +8,7 @@ type Props = {
 export const DasboardHeader: FC<Props> = ({columns = []}: Props) => (<Table.Header>
 	<Table.Row>
 		{columns.map(column =>
-			<Table.HeaderCell textAlign='center' key={column}>{column}</Table.HeaderCell>,
+			<Table.HeaderCell textAlign='center' key={column}><h2>{column}</h2></Table.HeaderCell>,
 		)}
 	</Table.Row>
 </Table.Header>);
