@@ -8,12 +8,11 @@ export const Login = () => {
 	const [email, setEmail] = useState('');
 
 	const onSubmit = () => {
-		userApi.login(email).catch(e => {
+		userApi.login(email).then(() => {
+			navigate('/dashboard');
+		}).catch(e => {
 			console.log(e);
 		});
-		if (localStorage.getItem('token')) {
-			navigate('/dashboard');
-		}
 	};
 
 	return (<Grid textAlign='center' style={{height: '100vh'}} verticalAlign='middle'>
